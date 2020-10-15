@@ -5,14 +5,13 @@ import { Login } from 'app/login/Login';
 import { Products } from 'app/products/Products';
 
 import { AppRoute } from './AppRoute.enum';
+import { GuardedRoute } from './common/GuardedRoute';
 
 export const AppRoutes = () => {
   return (
     <Switch>
-      <Route path={AppRoute.home} exact component={Products} />
+      <GuardedRoute path={AppRoute.home} exact component={Products} />
       <Route path={AppRoute.login} component={Login} />
-
-      <Redirect to={AppRoute.home} />
     </Switch>
   );
 };
