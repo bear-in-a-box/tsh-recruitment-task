@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { initI18n } from 'i18n';
 import { AppProviders } from 'providers/AppProviders';
 
 import { App } from './app/App';
 import * as serviceWorker from './serviceWorker';
 
+initI18n();
+
 ReactDOM.render(
   <AppProviders>
     <App />
   </AppProviders>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
