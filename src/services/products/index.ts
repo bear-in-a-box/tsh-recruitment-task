@@ -66,3 +66,4 @@ class ProductsService {
 }
 
 export default new ProductsService();
+export const ProductsTestService = ProductsService;
