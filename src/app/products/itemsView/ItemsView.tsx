@@ -12,7 +12,7 @@ interface Props {
 export const ItemsView: React.FC<Props> = ({ items }) => {
   return (
     <React.Fragment>
-      {items.slice(0, 7).map(({ id, ...props }) => (
+      {items.map(({ id, ...props }) => (
         <Grid item key={id}>
           <Item {...props} />
         </Grid>
