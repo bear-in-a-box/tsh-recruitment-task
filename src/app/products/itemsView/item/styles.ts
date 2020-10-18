@@ -23,11 +23,11 @@ export const useStyles = makeStyles(theme => ({
   },
   title: {
     fontSize: '18px',
-    color: '#1a181d',
+    color: theme.palette.text.primary,
   },
   description: {
     fontSize: '14px',
-    color: '#9194a5',
+    color: theme.palette.text.secondary,
   },
   promo: {
     backgroundColor: '#f9a52b',

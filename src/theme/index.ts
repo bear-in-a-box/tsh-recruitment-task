@@ -15,6 +15,10 @@ const theme = createMuiTheme({
       hover: '#2140e8',
       disabled: '#9194a5',
     },
+    text: {
+      primary: '#1a181d',
+      secondary: '#9194a5',
+    },
   },
 });
 
@@ -34,6 +38,20 @@ theme.overrides = {
     disabled: {
       backgroundColor: '#9194a5 !important',
       color: '#ffffff !important',
+    },
+  },
+  MuiPaper: {
+    root: {
+      overflow: 'hidden',
+    },
+    rounded: {
+      borderRadius: '8px',
+    },
+  },
+  MuiOutlinedInput: {
+    root: {
+      borderColor: '#e0e2ea',
+      borderRadius: '8px',
     },
   },
 };

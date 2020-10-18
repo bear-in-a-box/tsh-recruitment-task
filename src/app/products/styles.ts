@@ -9,6 +9,7 @@ export const useStyles = makeStyles(theme => ({
     flexGrow: 0,
     flexShrink: 0,
     flexBasis: '144px',
+    padding: theme.spacing(0, 8),
   },
   contentWrapper: {
     flexGrow: 1,
@@ -20,5 +21,12 @@ export const useStyles = makeStyles(theme => ({
   },
   content: {
     justifyContent: 'center',
+  },
+  searchIcon: {
+    width: '18px',
+    height: '18px',
+    '& path': {
+      fill: theme.palette.text.primary,
+    },
   },
 }));
