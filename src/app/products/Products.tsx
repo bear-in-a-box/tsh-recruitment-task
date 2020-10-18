@@ -1,12 +1,20 @@
-import { CircularProgress, Container, Grid } from '@material-ui/core';
-import { Logo } from 'common/logo/Logo';
+import {
+  CircularProgress,
+  Grid,
+  InputAdornment,
+  OutlinedInput,
+} from '@material-ui/core';
 import { useObservable } from 'hooks/use-observable';
 import React, { useMemo } from 'react';
 
 import { authService, productsService } from 'services';
 import { Products as Model } from 'services/products/types';
-import { ItemsView } from './itemsView/ItemsView';
+
 import { useStyles } from './styles';
+import { ItemsView } from './itemsView/ItemsView';
+
+import { Logo } from 'common/logo/Logo';
+import { ReactComponent as SearchIcon } from 'assets/search.svg';
 
 export const Products = () => {
   const styleClasses = useStyles();
@@ -29,8 +37,21 @@ export const Products = () => {
   return (
     <Grid container direction="column" justify="flex-start" wrap="nowrap">
       <Grid item container className={styleClasses.topBar}>
-        <Grid item xs={12} sm={10}>
+        <Grid item container xs={12} sm={10} alignItems="center">
           <Logo />
+          <OutlinedInput
+            placeholder="Search"
+            endAdornment={
+              <InputAdornment position="end">
+                <SearchIcon className={styleClasses.searchIcon} />
+              </InputAdornment>
+            }
+            onChange={event =>
+              productsService.updateFilters({
+                search: event.target.value,
+              })
+            }
+          />
         </Grid>
       </Grid>
       <Grid item container className={styleClasses.contentWrapper}>
