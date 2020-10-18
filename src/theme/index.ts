@@ -54,6 +54,26 @@ theme.overrides = {
       borderRadius: '8px',
     },
   },
+  MuiCheckbox: {
+    root: {
+      '& .MuiSvgIcon-root': {
+        width: '24px',
+        height: '24px',
+      },
+    },
+  },
+  MuiFormControlLabel: {
+    label: {
+      fontSize: '14px',
+    },
+  },
+  MuiMenuItem: {
+    root: {
+      '&:hover': {
+        backgroundColor: 'transparent',
+      },
+    },
+  },
 };
 
 export default theme;
