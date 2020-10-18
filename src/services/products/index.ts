@@ -6,6 +6,7 @@ import {
   exhaustMap,
   filter,
   retry,
+  startWith,
   shareReplay,
 } from 'rxjs/operators';
 
@@ -29,14 +30,16 @@ class ProductsService {
     authService.userToken$,
     this.filters$,
   ]).pipe(
-    debounceTime(500),
+    debounceTime(300),
     filter(([token]) => token != null),
     exhaustMap(([token, filters]) =>
-      ajax.getJSON<Products>(this.getEndpointForFilters(filters), {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        Authorization: token ?? undefined,
-      })
+      ajax
+        .getJSON<Products>(this.getEndpointForFilters(filters), {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Authorization: token ?? undefined,
+        })
+        .pipe(startWith(null))
     ),
     retry(5),
     catchError(error => {
@@ -59,8 +62,8 @@ class ProductsService {
     return `${base}?${queries}`;
   }
 
-  public updateFilters(filters: ProductsQuery) {
-    this.filters$.next(filters);
+  public updateFilters(filters: Partial<ProductsQuery>) {
+    this.filters$.next({ ...this.filters$.value, ...filters });
   }
 }
 
