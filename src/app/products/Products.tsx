@@ -46,55 +46,78 @@ export const Products = () => {
   return (
     <Grid container direction="column" justify="flex-start" wrap="nowrap">
       <Grid item container className={styleClasses.topBar}>
-        <Grid item container xs={12} sm={10} alignItems="center">
+        <Grid
+          item
+          container
+          xs={12}
+          sm={10}
+          alignItems="center"
+          justify="space-between"
+        >
           <Logo />
-          <OutlinedInput
-            placeholder="Search"
-            endAdornment={
-              <InputAdornment position="end">
-                <SearchIcon className={styleClasses.searchIcon} />
-              </InputAdornment>
-            }
-            onChange={event =>
-              productsService.updateFilters({
-                search: event.target.value,
-              })
-            }
-          />
-          <FormControlLabel
-            label="Active"
-            control={
-              <Checkbox
-                name="check-active"
-                color="primary"
+          <Grid
+            container
+            className={styleClasses.filters}
+            spacing={1}
+            sm={12}
+            md={7}
+          >
+            <Grid item>
+              <OutlinedInput
+                fullWidth
+                placeholder="Search"
+                endAdornment={
+                  <InputAdornment position="end">
+                    <SearchIcon className={styleClasses.searchIcon} />
+                  </InputAdornment>
+                }
                 onChange={event =>
                   productsService.updateFilters({
-                    active: event.target.checked,
+                    search: event.target.value,
                   })
                 }
               />
-            }
-          />
-          <FormControlLabel
-            label="Promo"
-            control={
-              <Checkbox
-                name="check-promo"
-                color="primary"
-                onChange={event =>
-                  productsService.updateFilters({
-                    promo: event.target.checked,
-                  })
+            </Grid>
+            <Grid item>
+              <FormControlLabel
+                label="Active"
+                control={
+                  <Checkbox
+                    name="check-active"
+                    color="primary"
+                    onChange={event =>
+                      productsService.updateFilters({
+                        active: event.target.checked,
+                      })
+                    }
+                  />
                 }
               />
-            }
-          />
+            </Grid>
+            <Grid item>
+              <FormControlLabel
+                label="Promo"
+                control={
+                  <Checkbox
+                    name="check-promo"
+                    color="primary"
+                    onChange={event =>
+                      productsService.updateFilters({
+                        promo: event.target.checked,
+                      })
+                    }
+                  />
+                }
+              />
+            </Grid>
+          </Grid>
           <Button
             variant="text"
             aria-haspopup="true"
             aria-controls="account-menu"
             onClick={event => setMenuAnchor(event.target)}
             disableRipple
+            className={styleClasses.avatarButton}
           >
             <Avatar alt="User" src={SampleAvatar} />
           </Button>
