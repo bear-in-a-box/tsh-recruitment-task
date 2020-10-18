@@ -5,7 +5,9 @@ import { Product } from 'services/products/types';
 import { Rating } from './rating/Rating';
 import { useStyles } from './styles';
 
-type Props = Omit<Product, 'id'>;
+type Props = Omit<Product, 'id'> & {
+  showDetails: () => void;
+};
 
 export const Item: React.FC<Props> = ({
   active,
@@ -14,6 +16,7 @@ export const Item: React.FC<Props> = ({
   name,
   promo,
   rating,
+  showDetails,
 }) => {
   const styleClasses = useStyles();
   return (
@@ -39,7 +42,12 @@ export const Item: React.FC<Props> = ({
           <Rating rate={rating} />
         </Grid>
         {active ? (
-          <Button fullWidth variant="contained" color="primary">
+          <Button
+            fullWidth
+            variant="contained"
+            color="primary"
+            onClick={showDetails}
+          >
             Show details
           </Button>
         ) : (
