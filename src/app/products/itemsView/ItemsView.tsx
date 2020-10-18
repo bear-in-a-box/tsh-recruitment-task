@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   Box,
   Button,
@@ -7,39 +8,57 @@ import {
   Paper,
   Typography,
 } from '@material-ui/core';
-import React, { useState } from 'react';
+import Pagination from '@material-ui/lab/Pagination';
 
-import { Product } from 'services/products/types';
+import { productsService } from 'services';
+import { Products, Product } from 'services/products/types';
 
 import { Item } from './item/Item';
 import { NoItems } from './noItems/NoItems';
 import { useStyles } from './styles';
 
 import { ReactComponent as CloseIcon } from 'assets/close.svg';
+import { useObservable } from 'hooks/use-observable';
 
 interface Props {
-  items: Product[];
+  data: Products;
 }
 
-export const ItemsView: React.FC<Props> = ({ items }) => {
+export const ItemsView: React.FC<Props> = ({ data }) => {
   const styleClasses = useStyles();
 
   const [detailsItem, setDetailsItem] = useState<Product | null>(null);
+  const filters = useObservable(
+    productsService.filters$,
+    productsService.filtersSync
+  );
 
   const closeDetails = () => setDetailsItem(null);
 
   return (
     <React.Fragment>
-      {items.length === 0 && (
+      {data.items.length === 0 && (
         <Grid item xs={11} sm={8}>
           <NoItems />
         </Grid>
       )}
-      {items.map(item => (
+      {data.items.map(item => (
         <Grid item key={item.id}>
           <Item {...item} showDetails={() => setDetailsItem(item)} />
         </Grid>
       ))}
+      {data.items.length > 0 && (
+        <Grid xs={12} justify="center">
+          <Pagination
+            count={data.pageCount}
+            page={filters.page}
+            onChange={(_, value) =>
+              productsService.updateFilters({ page: value })
+            }
+            className={styleClasses.pagination}
+          />
+        </Grid>
+      )}
       <Modal
         open={detailsItem != null}
         onClose={closeDetails}

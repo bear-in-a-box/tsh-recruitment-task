@@ -22,9 +22,13 @@ class ProductsService {
     page: 1,
   });
 
-  private readonly filters$ = new BehaviorSubject<ProductsQuery>(
+  public readonly filters$ = new BehaviorSubject<ProductsQuery>(
     this.initialFilters
   );
+
+  public get filtersSync() {
+    return this.filters$.value;
+  }
 
   public readonly products$ = combineLatest([
     authService.userToken$,
@@ -63,7 +67,7 @@ class ProductsService {
   }
 
   public updateFilters(filters: Partial<ProductsQuery>) {
-    this.filters$.next({ ...this.filters$.value, ...filters });
+    this.filters$.next({ ...this.filtersSync, ...filters });
   }
 }
 

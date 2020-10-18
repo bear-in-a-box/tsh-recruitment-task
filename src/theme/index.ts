@@ -74,6 +74,14 @@ theme.overrides = {
       },
     },
   },
+  // @ts-ignore
+  MuiPaginationItem: {
+    root: {
+      '&.MuiPaginationItem-page:hover': {
+        backgroundColor: 'transparent',
+      },
+    },
+  },
 };
 
 export default theme;

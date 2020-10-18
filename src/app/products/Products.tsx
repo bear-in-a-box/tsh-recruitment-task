@@ -40,7 +40,7 @@ export const Products = () => {
     if (products instanceof Error) {
       return <p>Error!</p>;
     }
-    return <ItemsView items={products.items} />;
+    return <ItemsView data={products} />;
   }, [products]);
 
   return (
