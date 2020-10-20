@@ -12,7 +12,7 @@ export const GuardedRoute: React.FC<RouteProps> = props => {
       return <Redirect to={AppRoute.login} />;
     }
     return <Route {...props} />;
-  }, [isLoggedIn]);
+  }, [isLoggedIn, props]);
 
   return contents;
 };

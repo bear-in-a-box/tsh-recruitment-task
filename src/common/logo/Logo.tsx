@@ -6,5 +6,5 @@ import { useStyles } from './styles';
 
 export const Logo: React.FC = () => {
   const { image: imageClass } = useStyles();
-  return <img src={LogoImage} className={imageClass} />;
+  return <img src={LogoImage} className={imageClass} alt="TSH Logo" />;
 };

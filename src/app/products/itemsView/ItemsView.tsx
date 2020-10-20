@@ -48,7 +48,7 @@ export const ItemsView: React.FC<Props> = ({ data }) => {
         </Grid>
       ))}
       {data.items.length > 0 && (
-        <Grid xs={12} justify="center">
+        <Grid container item xs={12} justify="center">
           <Pagination
             count={data.pageCount}
             page={filters.page}
@@ -66,10 +66,7 @@ export const ItemsView: React.FC<Props> = ({ data }) => {
       >
         <Container maxWidth="sm" className={styleClasses.modalContainer}>
           <Paper className={styleClasses.modalPaper}>
-            <img
-              alt={`Image for ${detailsItem?.name}`}
-              src={detailsItem?.image}
-            />
+            <img alt={detailsItem?.name} src={detailsItem?.image} />
             <Button
               variant="text"
               onClick={closeDetails}

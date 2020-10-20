@@ -57,6 +57,7 @@ export const Products = () => {
           <Logo />
           <Grid
             container
+            item
             className={styleClasses.filters}
             spacing={1}
             xs={12}

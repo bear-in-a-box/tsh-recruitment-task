@@ -10,11 +10,11 @@ import {
   shareReplay,
 } from 'rxjs/operators';
 
-import authService, { AuthService } from '../auth';
+import globalAuthService, { AuthService } from '../auth';
 import { Products, ProductsQuery } from './types';
 
 class ProductsService {
-  constructor(private authService: AuthService = authService) {}
+  constructor(private authService: AuthService = globalAuthService) {}
 
   public readonly initialFilters: ProductsQuery = Object.freeze({
     search: '',

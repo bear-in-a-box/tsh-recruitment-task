@@ -21,11 +21,7 @@ export const Item: React.FC<Props> = ({
   const styleClasses = useStyles();
   return (
     <Paper elevation={0} className={styleClasses.root}>
-      <img
-        src={image}
-        alt={`Image for ${name}`}
-        className={styleClasses.image}
-      />
+      <img src={image} alt={name} className={styleClasses.image} />
       {promo && (
         <Box component="span" className={styleClasses.promo}>
           Promo
@@ -38,7 +34,13 @@ export const Item: React.FC<Props> = ({
         </Typography>
       </Box>
       <Box p={2} className={styleClasses.actions}>
-        <Grid container xs={12} spacing={1} className={styleClasses.rating}>
+        <Grid
+          container
+          item
+          xs={12}
+          spacing={1}
+          className={styleClasses.rating}
+        >
           <Rating rate={rating} />
         </Grid>
         {active ? (
