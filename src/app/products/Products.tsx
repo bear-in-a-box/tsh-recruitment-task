@@ -59,10 +59,10 @@ export const Products = () => {
             container
             className={styleClasses.filters}
             spacing={1}
-            sm={12}
+            xs={12}
             md={7}
           >
-            <Grid item>
+            <Grid item xs={12}>
               <OutlinedInput
                 fullWidth
                 placeholder="Search"

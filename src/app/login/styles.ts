@@ -15,10 +15,9 @@ export const useStyles = makeStyles({
   },
   logoWrapper: {
     alignSelf: 'flex-start',
+    paddingTop: '2em',
   },
   content: {
     justifyContent: 'center',
-    alignItems: 'center',
-    alignContent: 'center',
   },
 });

@@ -38,6 +38,7 @@ export const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       order: 3,
+      flexWrap: 'wrap',
     },
   },
   searchIcon: {
