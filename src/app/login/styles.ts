@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles(theme => ({
   sideImageContainer: {
     maxHeight: '100%',
     justifyContent: 'stretch',
@@ -20,4 +20,10 @@ export const useStyles = makeStyles({
   content: {
     justifyContent: 'center',
   },
-});
+  forgotPassword: {
+    fontSize: '14px',
+    color: theme.palette.text.secondary,
+    textDecoration: 'underline',
+    marginTop: theme.spacing(1),
+  },
+}));

@@ -96,6 +96,9 @@ export const Login = () => {
               </Button>
             </Box>
           </form>
+          <Button variant="text" className={styleClasses.forgotPassword}>
+            Forgot password?
+          </Button>
         </Grid>
       </Grid>
     </Grid>
