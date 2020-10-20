@@ -1,80 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and modified by TSH team for the recruit process.
+# TSH Technical Recruitment Task
 
-## Quick Start
+## Intro
 
-To start the development:
+Hi, I'm happy to see you here! :)
 
-```
-mkdir new-project
-cd new-project/
-git clone git@github.com:TheSoftwareHouse/react-interview-starter-ts.git .
-rm -r .git
-npm install
-cd e2e
-npm install
-cd ..
-cp .env.dist .env
-cp .env.e2e.dist ./e2e/.env
-```
+> The code base for this one was mirrored from the repository below:
+>
+> https://github.com/TheSoftwareHouse/react-interview-starter-ts
 
-where `new-project` is your desired folder.
+## What is done
 
-## E2E
+Might be that some things weren't necessary to do for a recruitment task. It was mentioned that it's better to keep further development and scalability in mind, though.
 
-For E2E testing we are using the [Cypress](https://www.cypress.io/) framework. If you don't need it just remove e2e directory.
+So here we are with:
 
-## Available Scripts
+- authentication integrated with the provided API
+  > "The login button doesn't have to do anything" - yet it does
+- Material UI as, well, the UI part
+- products with searching, filtering, pagination and a debouncer over all that
+- internationalization (though for now there's only a JSON for English)
+- business logic as a completely separate, UI-independent layer
+- fully reactive data flow
 
-In the project directory, you can run:
+## What isn't done
 
-### `e2e:run`
+E2E tests. Sorry for that. I didn't want you to wait longer because of the testing aspect.
 
-Runs Cypress E2E tests in a headless mode (the browser window is not visible)
+_We can still talk about them, though._
 
-### `e2e:open`
+## What might have been done better
 
-Opens the Cypress UI, allowing to run and watch E2E tests
+Unit tests. I mean, there would be more of them. The reason is same as for E2E tests.
 
-### `npm start`
+There's also a thing about the architecture itself. I prefer a slightly different approach, so that there are no repetitions in the import path. It's done the way it is just to comply with the starter's manners.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Bottom line
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Let's talk. I'll try to answer all of the questions you may want to ask.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run coverage`
-
-Launches the test runner in the coverage report generation mode.<br />
-See [this](https://create-react-app.dev/docs/running-tests/#coverage-reporting) section for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Thank you for reading this one. :)
