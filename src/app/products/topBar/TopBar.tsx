@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Avatar, Button, Grid, Menu, MenuItem } from '@material-ui/core';
 
 import SampleAvatar from 'assets/sample-avatar.jpg';
@@ -10,6 +11,7 @@ import { Filters } from './filters/Filters';
 
 export const TopBar: React.FC = () => {
   const styleClasses = useStyles();
+  const [t] = useTranslation();
 
   const [menuAnchor, setMenuAnchor] = useState<any>(null);
 
@@ -41,7 +43,9 @@ export const TopBar: React.FC = () => {
         open={Boolean(menuAnchor)}
         onClose={() => setMenuAnchor(null)}
       >
-        <MenuItem onClick={() => authService.signOut()}>Log out</MenuItem>
+        <MenuItem onClick={() => authService.signOut()}>
+          {t('productsScreen.logout')}
+        </MenuItem>
       </Menu>
     </Grid>
   );

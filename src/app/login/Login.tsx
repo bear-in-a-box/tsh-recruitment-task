@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Redirect } from 'react-router-dom';
 
 import {
@@ -13,15 +14,16 @@ import {
 
 import { authService } from 'services';
 
-import { AppRoute } from 'routing/AppRoute.enum';
-import { useIsLoggedIn } from 'hooks/use-is-logged-in';
-
 import SideImage from 'assets/login/side.jpg';
-import { useStyles } from './styles';
 import { Logo } from 'common/logo/Logo';
+import { useIsLoggedIn } from 'hooks/use-is-logged-in';
+import { AppRoute } from 'routing/AppRoute.enum';
+
+import { useStyles } from './styles';
 
 export const Login = () => {
   const styleClasses = useStyles();
+  const [t] = useTranslation();
 
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -60,13 +62,15 @@ export const Login = () => {
           <Logo />
         </Grid>
         <Grid item xs={11} sm={9}>
-          <Typography variant="h4">Login</Typography>
+          <Typography variant="h4">{t('loginScreen.header')}</Typography>
           <form onSubmit={onLoginRequest} noValidate>
             <Box component="label" my={3}>
-              <Typography variant="subtitle2">Username</Typography>
+              <Typography variant="subtitle2">
+                {t('loginScreen.usernameLabel')}
+              </Typography>
               <TextField
                 variant="outlined"
-                placeholder="Enter username"
+                placeholder={t('loginScreen.usernamePlaceholder')}
                 name="username"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
@@ -74,10 +78,12 @@ export const Login = () => {
               />
             </Box>
             <Box component="label" my={3}>
-              <Typography variant="subtitle2">Password</Typography>
+              <Typography variant="subtitle2">
+                {t('loginScreen.passwordLabel')}
+              </Typography>
               <TextField
                 variant="outlined"
-                placeholder="Enter password"
+                placeholder={t('loginScreen.passwordPlaceholder')}
                 name="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
@@ -92,12 +98,12 @@ export const Login = () => {
                 fullWidth
                 color="primary"
               >
-                Log in
+                {t('loginScreen.loginButton')}
               </Button>
             </Box>
           </form>
           <Button variant="text" className={styleClasses.forgotPassword}>
-            Forgot password?
+            {t('loginScreen.forgotPassword')}
           </Button>
         </Grid>
       </Grid>

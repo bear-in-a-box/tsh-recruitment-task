@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Checkbox,
   FormControlLabel,
@@ -15,6 +16,7 @@ import { useStyles } from './styles';
 
 export const Filters: React.FC = () => {
   const styleClasses = useStyles();
+  const [t] = useTranslation();
 
   return (
     <Grid
@@ -28,7 +30,7 @@ export const Filters: React.FC = () => {
       <Grid item xs={12}>
         <OutlinedInput
           fullWidth
-          placeholder="Search"
+          placeholder={t('productsScreen.filters.search')}
           endAdornment={
             <InputAdornment position="end">
               <SearchIcon className={styleClasses.searchIcon} />
@@ -43,7 +45,7 @@ export const Filters: React.FC = () => {
       </Grid>
       <Grid item>
         <FormControlLabel
-          label="Active"
+          label={t('productsScreen.filters.active')}
           control={
             <Checkbox
               name="check-active"
@@ -59,7 +61,7 @@ export const Filters: React.FC = () => {
       </Grid>
       <Grid item>
         <FormControlLabel
-          label="Promo"
+          label={t('productsScreen.filters.promo')}
           control={
             <Checkbox
               name="check-promo"

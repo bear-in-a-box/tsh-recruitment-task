@@ -1,5 +1,6 @@
-import { Box, Button, Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Box, Button, Grid, Paper, Typography } from '@material-ui/core';
 
 import { Product } from 'services/products/types';
 import { Rating } from './rating/Rating';
@@ -19,12 +20,14 @@ export const Item: React.FC<Props> = ({
   showDetails,
 }) => {
   const styleClasses = useStyles();
+  const [t] = useTranslation();
+
   return (
     <Paper elevation={0} className={styleClasses.root}>
       <img src={image} alt={name} className={styleClasses.image} />
       {promo && (
         <Box component="span" className={styleClasses.promo}>
-          Promo
+          {t('productsScreen.promo')}
         </Box>
       )}
       <Box p={2}>
@@ -50,11 +53,11 @@ export const Item: React.FC<Props> = ({
             color="primary"
             onClick={showDetails}
           >
-            Show details
+            {t('productsScreen.showDetails')}
           </Button>
         ) : (
           <Button fullWidth variant="contained" disabled>
-            Unavailable
+            {t('productsScreen.unavailable')}
           </Button>
         )}
       </Box>

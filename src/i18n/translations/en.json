@@ -1,0 +1,26 @@
+{
+  "loginScreen": {
+    "header": "Login",
+    "usernameLabel": "Username",
+    "usernamePlaceholder": "Enter username",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter password",
+    "loginButton": "Log in",
+    "forgotPassword": "Forgot password?"
+  },
+  "productsScreen": {
+    "showDetails": "Show details",
+    "unavailable": "Unavailable",
+    "promo": "Promo",
+    "logout": "Log out",
+    "noItems": {
+      "title": "Ooops... It's empty here",
+      "subtitle": "There are no products on the list"
+    },
+    "filters": {
+      "search": "Search",
+      "active": "Active",
+      "promo": "Promo"
+    }
+  }
+}
