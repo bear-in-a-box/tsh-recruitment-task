@@ -1,13 +1,20 @@
 import React from 'react';
 
+import { initI18n } from 'i18n';
 import { render } from 'tests';
 
 import { Products } from './Products';
 
-describe('Products', () => {
-  test('Displays page header', async () => {
-    const { getByText } = render(<Products />);
+beforeAll(() => {
+  initI18n();
+});
 
-    expect(getByText('Products page')).toBeInTheDocument();
+describe('Products', () => {
+  it('should render filters', async () => {
+    const { getByText, getByPlaceholderText } = render(<Products />);
+
+    expect(getByPlaceholderText('Search')).toBeInTheDocument();
+    expect(getByText('Active')).toBeInTheDocument();
+    expect(getByText('Promo')).toBeInTheDocument();
   });
 });

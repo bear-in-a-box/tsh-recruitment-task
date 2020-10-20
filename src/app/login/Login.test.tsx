@@ -1,16 +1,21 @@
 import React from 'react';
 
+import { initI18n } from 'i18n';
 import { render } from 'tests';
 
 import { Login } from './Login';
 
-describe('Login', () => {
-  test('Displays all information', async () => {
-    const { getByText, getByLabelText } = render(<Login />);
+beforeAll(() => {
+  initI18n();
+});
 
-    expect(getByText('Products page')).toBeInTheDocument();
-    expect(getByText('Products page')).toBeInTheDocument();
-    expect(getByLabelText('username:')).toBeInTheDocument();
-    expect(getByLabelText('password:')).toBeInTheDocument();
+describe('Login', () => {
+  it('should display all information', async () => {
+    const { getByText } = render(<Login />);
+
+    expect(getByText('Login')).toBeInTheDocument();
+    expect(getByText('Username')).toBeInTheDocument();
+    expect(getByText('Password')).toBeInTheDocument();
+    expect(getByText('Log in')).toBeInTheDocument();
   });
 });
