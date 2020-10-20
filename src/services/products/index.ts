@@ -10,10 +10,12 @@ import {
   shareReplay,
 } from 'rxjs/operators';
 
-import authService from '../auth';
+import authService, { AuthService } from '../auth';
 import { Products, ProductsQuery } from './types';
 
 class ProductsService {
+  constructor(private authService: AuthService = authService) {}
+
   public readonly initialFilters: ProductsQuery = Object.freeze({
     search: '',
     active: false,
@@ -31,11 +33,10 @@ class ProductsService {
   }
 
   public readonly products$ = combineLatest([
-    authService.userToken$,
+    this.authService.userToken$,
     this.filters$,
   ]).pipe(
     debounceTime(300),
-    filter(([token]) => token != null),
     exhaustMap(([token, filters]) =>
       ajax
         .getJSON<Products>(this.getEndpointForFilters(filters), {
@@ -72,4 +73,4 @@ class ProductsService {
 }
 
 export default new ProductsService();
-export const ProductsTestService = ProductsService;
+export { ProductsService };
